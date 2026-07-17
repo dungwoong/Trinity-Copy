@@ -1,3 +1,5 @@
+third_party/wheels/*.whl
+
 # Trinity output files
 trinity_output/*
 backend/results/vanilla/*.py
