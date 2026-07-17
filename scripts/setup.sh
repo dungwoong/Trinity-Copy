@@ -36,12 +36,11 @@ setup_backend() {
 }
 
 setup_optimizer() {
-  require_command sudo
   require_command apt
 
   echo "[optimizer] Installing system packages via apt"
-  sudo apt update
-  sudo apt install -y \
+  apt update
+  apt install -y \
     build-essential \
     clang \
     libclang-dev \
