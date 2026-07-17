@@ -1,0 +1,115 @@
+{
+  "config": {
+    "M": 16,
+    "N": 4544,
+    "D": 64,
+    "H": 71,
+    "P": 1024
+  },
+  "tensors": {
+    "X": {
+      "shape": [16, 4544],
+      "type": "input"
+    },
+    "X2": {
+      "shape": [16],
+      "type": "intermediate"
+    },
+    "X_norm": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "WQ": {
+      "shape": [4544, 4544],
+      "type": "input"
+    },
+    "WK": {
+      "shape": [4544, 4544],
+      "type": "input"
+    },
+    "WV": {
+      "shape": [4544, 4544],
+      "type": "input"
+    },
+    "Q1": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "K1": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "V1": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "Q2": {
+      "shape": [16, 71, 64],
+      "type": "intermediate"
+    },
+    "K2": {
+      "shape": [16, 71, 64],
+      "type": "intermediate"
+    },
+    "V2": {
+      "shape": [16, 71, 64],
+      "type": "intermediate"
+    },
+    "Q": {
+      "shape": [71, 16, 64],
+      "type": "intermediate"
+    },
+    "K": {
+      "shape": [71, 16, 64],
+      "type": "intermediate"
+    },
+    "V": {
+      "shape": [71, 16, 64],
+      "type": "intermediate"
+    },
+    "K_cache": {
+      "shape": [71, 1024, 64],
+      "type": "input"
+    },
+    "V_cache": {
+      "shape": [71, 1024, 64],
+      "type": "input"
+    },
+    "C": {
+      "shape": [71, 16, 1024],
+      "type": "intermediate"
+    },
+    "C_exp": {
+      "shape": [71, 16, 1024],
+      "type": "intermediate"
+    },
+    "C_div": {
+      "shape": [71, 16, 1024],
+      "type": "intermediate"
+    },
+    "C_sum": {
+      "shape": [71, 16],
+      "type": "intermediate"
+    },
+    "O": {
+      "shape": [71, 16, 64],
+      "type": "intermediate"
+    },
+    "O1": {
+      "shape": [16, 71, 64],
+      "type": "intermediate"
+    },
+    "O2": {
+      "shape": [16, 4544],
+      "type": "output"
+    },
+    "C_out1": {
+      "shape": [71, 1024],
+      "type": "output"
+    },
+    "C_out2": {
+      "shape": [71, 1024],
+      "type": "output"
+    }
+  }
+}

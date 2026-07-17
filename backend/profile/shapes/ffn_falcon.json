@@ -1,0 +1,81 @@
+{
+  "config": {
+    "M": 16,
+    "N": 4544,
+    "P": 18176
+  },
+  "tensors": {
+    "O2": {
+      "shape": [16, 4544],
+      "type": "input"
+    },
+    "WO": {
+      "shape": [4544, 4544],
+      "type": "input"
+    },
+    "attn_O1": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "X": {
+      "shape": [16, 4544],
+      "type": "input"
+    },
+    "attn_O2": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "attn_O3": {
+      "shape": [16],
+      "type": "intermediate"
+    },
+    "attn_O_norm": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "WFF1a": {
+      "shape": [4544, 18176],
+      "type": "input"
+    },
+    "WFF1b": {
+      "shape": [4544, 18176],
+      "type": "input"
+    },
+    "FF1a": {
+      "shape": [16, 18176],
+      "type": "intermediate"
+    },
+    "FF1b": {
+      "shape": [16, 18176],
+      "type": "intermediate"
+    },
+    "FF1b_silu": {
+      "shape": [16, 18176],
+      "type": "intermediate"
+    },
+    "FF1": {
+      "shape": [16, 18176],
+      "type": "intermediate"
+    },
+    "FF2": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "WFF2": {
+      "shape": [18176, 4544],
+      "type": "input"
+    },
+    "O_FF": {
+      "shape": [16, 4544],
+      "type": "intermediate"
+    },
+    "O_FF1": {
+      "shape": [16],
+      "type": "intermediate"
+    },
+    "O_FF_norm": {
+      "shape": [16, 4544],
+      "type": "output"
+    }
+  }
+}

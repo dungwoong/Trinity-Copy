@@ -1,0 +1,16 @@
+name: trinity
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - cloudpickle
+      - ml_dtypes
+      - numpy
+      - packaging
+      - psutil
+      - scipy
+      - torch
+      - tornado
+      - typing_extensions

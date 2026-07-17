@@ -1,0 +1,9 @@
+[submodule "deps/cutlass"]
+	path = src/mirage/deps/cutlass
+	url = https://github.com/NVIDIA/cutlass.git
+[submodule "deps/z3"]
+	path = src/mirage/deps/z3
+	url = https://github.com/Z3Prover/z3.git
+[submodule "deps/json"]
+	path = src/mirage/deps/json
+	url = https://github.com/nlohmann/json.git
