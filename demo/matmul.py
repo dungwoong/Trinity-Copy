@@ -19,13 +19,13 @@ if __name__ == "__main__":
 
     M, N, K = 4096, 4096, 4096
 
-    dtype = torch.float32
+    dtype = torch.float16
     A = torch.randn((M, K), dtype=dtype, device='cuda')
     B = torch.randn((K, N), dtype=dtype, device='cuda')
     C = torch.randn((M, N), dtype=dtype, device='cuda')
 
     model = Matmul()
-    result = trinity.optimize(model, (A, B), basename="rmsnorm_linear", skip_frontend=False, verbose=True, backend_max_benchmarks=512)
+    result = trinity.optimize(model, (A, B), basename="matmul", skip_frontend=False, verbose=True, backend_max_benchmarks=512)
     print(result.kernel)
     print(result.kernel_path)
     print(result.ir_expression)
