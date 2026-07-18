@@ -4,8 +4,30 @@ From: pytorch/pytorch:2.8.0-cuda12.9-cudnn9-devel
 %files
     Trinity-Copy /opt/Trinity-AE
 
+%environment
+    # This ensures anyone using the container has Rust in their PATH
+    export RUSTUP_HOME=/opt/rust/rustup
+    export CARGO_HOME=/opt/rust/cargo
+    export PATH=/opt/rust/cargo/bin:$PATH
+
 %post
     set -e
+    
+    # System updates and dependencies
+    apt-get update
+    apt-get install -y curl
+    
+    # Force Rust to install globally into /opt/rust
+    export HOME=/home
+    export RUSTUP_HOME=/opt/rust/rustup
+    export CARGO_HOME=/opt/rust/cargo
+    
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o /tmp/rustup-init.sh
+    chmod +x /tmp/rustup-init.sh
+    /tmp/rustup-init.sh -y --no-modify-path
+
     /opt/Trinity-AE/scripts/setup.sh
+    
+    # Clean up apt caches to keep image size small
     apt-get clean
     rm -rf /var/lib/apt/lists/*

@@ -45,12 +45,13 @@ class OptimizerStage:
 
         result = subprocess.run(
             [
-                "cargo",
-                "run",
-                "--release",
-                "--bin",
-                "trinity_opt",
-                "--",
+                # "cargo",
+                # "run",
+                # "--release",
+                # "--bin",
+                # "trinity_opt",
+                f"{OPTIMIZER_DIR}/target/release/trinity_opt",
+                # "--",
                 "--ir",
                 str(source_ir_path),
                 "--shapes",
