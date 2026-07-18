@@ -32,7 +32,7 @@ setup_conda() {
 
 setup_backend() {
   echo "[backend] Installing Python dependencies"
-  python -m pip install -r "$ROOT_DIR/backend/requirements.txt"
+  python -m pip install --no-cache-dir -r "$ROOT_DIR/backend/requirements.txt"
 }
 
 setup_optimizer() {
