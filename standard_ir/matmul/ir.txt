@@ -1,0 +1,10 @@
+(loop 0 4096 tile_i i
+  (loop 0 4096 tile_i i
+    (loop 0 4096 tile_j j
+      (store (output lv)
+        (+ (load (output lv) (index (tile i))) (rsum (* (load (input a) (index (tile i) (tile j))) (load (input b) (index (tile j) (tile i)))) 1))
+        (index (tile i))
+      )
+    )
+  )
+)

@@ -43,6 +43,8 @@ class OptimizerStage:
         env = os.environ.copy()
         env["TMPDIR"] = str(build_tmp_dir)
 
+        # Modified this to use pre-built trinity_opt.
+        # point to f"{OPTIMIZER_DIR}/trinity_opt" if using a copy
         result = subprocess.run(
             [
                 # "cargo",
@@ -50,7 +52,7 @@ class OptimizerStage:
                 # "--release",
                 # "--bin",
                 # "trinity_opt",
-                f"{OPTIMIZER_DIR}/target/release/trinity_opt",
+                f"/opt/Trinity-AE/optimizer/target/release/trinity_opt",
                 # "--",
                 "--ir",
                 str(source_ir_path),
