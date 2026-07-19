@@ -1,0 +1,27 @@
+%post
+    set -e
+    bash Anaconda3-2025.12-2-Linux-x86_64.sh -b
+    echo 'export PATH="$HOME/anaconda3/bin:$PATH"' >> ~/.$(basename $SHELL)rc
+    source ~/.$(basename $SHELL)rc
+
+
+apptainer build --sandbox --fakeroot Trinity.sandbox docker://pytorch/pytorch:2.8.0-cuda12.9-cudnn9-devel
+
+need to download the wheels
+need to replace python with python3 in scripts/install_tvm_wheels
+
+change the tvm wheel they're looking for to mlc_ai_cpu-0.20.0-py3-none-manylinux_2_28_x86_64.whl. For ffi you can just rename and call it a day
+remove sudo from thier setup.sh, you don't need it with fakeroot and apptainer doesn't have sudo anyways
+
+need to chmod a+x /opt/conda/etc/profile.d/conda.sh and run conda init in the %post
+
+
+need to install pytest and rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+apptainer shell --bind $PWD/tmp:/opt/rust/cargo/registry --nv Trinity.sif
+apptainer shell --bind $SCRATCH/rust_tmp:/opt/rust/cargo/registry --nv ../Trinity.sif
+
+apptainer shell --bind $PWD/tmp:/opt/Trinity-AE/trinity_output --nv Triunity.sif
+apptainer shell --bind $PWD/trinity_output:/opt/Trinity-AE/trinity_output --nv ../Triunity.sif
+ADD --writable-tmpfs, maybe I could try building trinity-AE outside or something
